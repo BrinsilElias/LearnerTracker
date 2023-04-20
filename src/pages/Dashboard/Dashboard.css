@@ -1,0 +1,337 @@
+
+.dashboard-body {
+    max-width: 1240px;
+    margin-inline: auto;
+    margin-top: 3rem;
+    padding-inline: 1.315rem;
+}
+
+.dashboard-body-table {
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.user-table-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn[data-icon="add-icon"]::before {
+    content: "";
+    background-image: url("../../icons/plus.svg");  
+    background-position: center;
+    background-size: cover;
+    width: 18px;
+    aspect-ratio: 1;
+}
+
+.btn[data-icon="import-icon"]::before {
+    content: "";
+    background-image: url("../../icons/import.svg");  
+    background-position: center;
+    background-size: cover;
+    width: 18px;
+    aspect-ratio: 1;
+}
+
+.btn-add {
+    padding-block: 0.4rem;
+    background-color: var(--clr-primary);
+    color: var(--clr-neutral-100);
+}
+
+.btn-import {
+    padding-block: 0.4rem;
+    background-color: var(--clr-neutral-100);
+    color: var(--clr-text-dark);
+    border: 1px solid var(--clr-border);
+}
+
+.btn-delete, 
+.btn-edit {
+    padding-block: 0;
+    background-color: var(--clr-neutral-100);
+}
+
+.btn-sign-out {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    background-color: #F9F5FF;
+    color: #6941C6;
+}
+
+.btn-submit {
+    background-color: var(--clr-primary);
+    color: var(--clr-neutral-100);
+}
+
+.btn[data-icon="signout-icon"]::after {
+    content: "";
+    background-image: url("../../icons/exit.svg");  
+    background-position: center;
+    background-size: cover;
+    width: 18px;
+    aspect-ratio: 1;
+}
+
+.btn[data-icon="delete-icon"]::before {
+    content: "";
+    background-image: url("../../icons/delete.svg");  
+    background-position: center;
+    background-size: cover;
+    width: 18px;
+    aspect-ratio: 1;
+}
+
+.btn[data-icon="edit-icon"]::before {
+    content: "";
+    background-image: url("../../icons/edit.svg");  
+    background-position: center;
+    background-size: cover;
+    width: 18px;
+    aspect-ratio: 1;
+}
+
+.dashboard-body-cards {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chart1-icon {
+    width: 29px;
+    aspect-ratio: 1;
+    background-image: url('../../icons/chart1.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.chart2-icon {
+    width: 29px;
+    aspect-ratio: 1;
+    background-image: url('../../icons/chart2.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.users-icon {
+    width: 29px;
+    aspect-ratio: 1;
+    background-image: url('../../icons/users.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.user-icon {
+    width: 29px;
+    aspect-ratio: 1;
+    background-image: url('../../icons/user.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.dashboard-body-actions {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+/* Table */
+.green-tag {
+    background-color: #ECFDF3;
+    color: #027A48;
+    width: 66px;
+}
+
+.yellow-tag {
+    background-color: #FFFAEB;
+    color: #B54708;
+    width: 89px;
+}
+
+.purple-tag {
+    background-color: #F9F5FF;
+    color: #6941C6;
+    width: 55px;
+}
+
+.blue-tag {
+    background-color: #EFF8FF;
+    color: #175CD3;
+    width: 87px;
+}
+
+.indigo-tag {
+    background-color: #EEF4FF;
+    color: #3538CD;
+    width: 99px;
+}
+
+/* Radix UI Alert Box */
+.AlertDialogOverlay {
+    background-color: var(--clr-overlay);
+    position: fixed;
+    inset: 0;
+    animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+  
+.AlertDialogContent {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 400px;
+    padding: 25px;
+    animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.AlertDialogContent:focus {
+    outline: none;
+}
+
+.error-icon {
+    margin-bottom: 0.8rem;
+    width: 48px;
+    aspect-ratio: 1;
+    background-image: url("../../icons/error-message.svg");
+    background-position: center;
+    background-size: contain;
+}
+  
+.AlertDialogTitle {
+    margin-bottom: 0.5rem;
+    color: var(--clr-text-dark);
+    font-size: 17px;
+    font-weight: 500;
+}
+  
+.AlertDialogDescription {
+    margin-bottom: 2rem;
+    color: var(--clr-text-light);
+    font-size: 14px;
+    line-height: 1.5;
+}
+  
+.btn-cancel {
+    background-color: var(--clr-neutral-100);
+    border: 1px solid var(--clr-border);
+    color: var(--clr-text-dark);
+}
+
+.btn-red {
+    background-color: var(--clr-delete);
+    color: var(--clr-neutral-100);
+    width: 100%;
+}
+  
+  
+@keyframes overlayShow {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+  
+  
+@keyframes contentShow {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -48%) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Radix UI Edit Dialog */
+.DialogOverlay {
+    background-color: var(--clr-overlay);
+    position: fixed;
+    inset: 0;
+    animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+  
+.DialogContent {
+    background-color: white;
+    border-radius: 6px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 480px;
+    max-height: 95vh;
+    padding: 25px;
+    animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.warning-icon {
+    margin-bottom: 0.8rem;
+    width: 48px;
+    aspect-ratio: 1;
+    background-image: url("../../icons/edit-profile.svg");
+    background-position: center;
+    background-size: contain;
+}
+
+.add-icon {
+    margin-bottom: 0.8rem;
+    width: 48px;
+    aspect-ratio: 1;
+    background-image: url("../../icons/add-profile.svg");
+    background-position: center;
+    background-size: contain;
+}
+  
+.DialogTitle {
+    margin: 0;
+    font-weight: 500;
+    color: var(--clr-text-dark);
+    font-size: 1rem;
+}
+  
+  
+.DialogDescription {
+    margin: 10px 0 20px;
+    color: var(--clr-text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+  
+.btn-save {
+    background-color: var(--clr-primary);
+    color: var(--clr-neutral-100);
+}
+  
+@keyframes overlayShow {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+  
+  
+@keyframes contentShow {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -48%) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+}

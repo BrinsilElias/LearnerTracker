@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Learner Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<p align="center">
+  <a href="#">About The Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#">Requirments</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#">Install</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#">Running the Project</a>
+</p>
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 About the Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ Learner Tracker provides a comprehensive dashboard that enables effective tracking and management of learners for ICT training academy. The dashboard will have separate logins for admin, training head, and placement officer, each with different levels of access and control.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Screenshot of Application](./LearnerTracker.jpg)
 
-### `npm test`
+---
+## 💻 Technologies
+- [React](https://react.dev/learn)
+- [Express](https://expressjs.com/)
+- [Nodejs](https://nodejs.org/en/docs/) 
+- [Material UI](https://mui.com/material-ui/getting-started/overview/)
+- [RadixUI](https://www.radix-ui.com/docs/primitives/overview/introduction)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
+## 🧰 Requirements
 
-### `npm run build`
+For development, you will only need Node.js and a node global package installed in your environement.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Node
+- #### Node installation on Windows
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  Just go on [official Node.js website](https://nodejs.org/) and download the installer.
+  Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- #### Node installation on Ubuntu
 
-### `npm run eject`
+  You can install nodejs and npm easily with apt install, just run the following commands.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+      $ sudo apt install nodejs
+      $ sudo apt install npm
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- #### Other Operating Systems
+  You can find more information about the installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+If the installation was successful, you should be able to run the following command.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    $ node --version
+    v8.11.3
 
-## Learn More
+    $ npm --version
+    6.1.0
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ⚙️ Install
+After installing node and npm run the following commands to clone the repo and install all the dependencies that is used for this application.
 
-### Code Splitting
+    $ git clone https://github.com/BrinsilElias/Employee.git
+    $ cd Employee
+    $ npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+##  Running the project
+After installing all the node modules run the below command to start the server. The server runs on port 3000 so after starting the server visit http://localhost:3000.
 
-### Analyzing the Bundle Size
+    $ npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
