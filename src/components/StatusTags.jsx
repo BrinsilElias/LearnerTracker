@@ -25,6 +25,7 @@ function YellowTag() {
     </div>
   )
 }
+
 function PurpleTag() {
   return (
     <div style={tagStyle} className='tags purple-tag'>
@@ -32,6 +33,7 @@ function PurpleTag() {
     </div>
   )
 }
+
 function BlueTag() {
   return (
     <div style={tagStyle} className='tags blue-tag'>
@@ -39,6 +41,7 @@ function BlueTag() {
     </div>
   )
 }
+
 function IndigoTag() {
   return (
     <div style={tagStyle} className='tags indigo-tag'>
@@ -47,4 +50,5 @@ function IndigoTag() {
   )
 }
 
-export { GreenTag, YellowTag, PurpleTag, BlueTag, IndigoTag}
+
+export { GreenTag, YellowTag, PurpleTag, BlueTag, IndigoTag }

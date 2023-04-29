@@ -11,7 +11,7 @@
   --clr-text-dark: hsl(220, 43%, 11%);
   --clr-text-light: #667085;
   
-  --clr-border: #d0d5dd;
+  --clr-border: hsl(217, 16%, 84%);
   --clr-link: hsl(221, 83%, 53%);
   --clr-delete: hsl(4, 74%, 49%);
   --clr-save: hsl(153, 96%, 30%);
@@ -99,6 +99,20 @@ a {
   color: var(--clr-link);
 }
 
+.xs-text-light {
+  font-size: 0.8rem;
+  font-weight: var(--fw-rg);
+  color: var(--clr-text-light);
+  line-height: 1.2;
+}
+
+.xs-text-dark {
+  font-size: 0.8rem;
+  font-weight: var(--fw-rg);
+  color: var(--clr-text-dark);
+  line-height: 1.2;
+}
+
 .small-text {
   font-size: 0.925rem;
   font-weight: var(--fw-rg);
@@ -140,6 +154,12 @@ header {
   border-bottom: 1px #EAECF0 solid;
 }
 
+.nav-item-2 {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 button {
   cursor: pointer;
   border: none;
@@ -163,3 +183,45 @@ input:focus {
   outline: 1.2px solid var(--clr-primary);
 }
 
+/* Check Box */
+input[type="checkbox"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 1.5px solid black;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    transition: box-shadow 500ms;
+}
+
+input[type="checkbox"]:hover {
+    box-shadow: hsla(239, 84%, 67%, 0.4) 0px 8px 24px;
+}
+
+input[type="checkbox"]:focus {
+    outline: none;
+}
+
+input[type="checkbox"] {
+    /* ...existing styles */
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+}
+  
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--clr-primary);
+}
+  
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}

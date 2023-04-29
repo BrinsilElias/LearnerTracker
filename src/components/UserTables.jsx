@@ -1,4 +1,5 @@
-import * as React from 'react';
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Table from '@mui/material/Table';
@@ -40,62 +41,17 @@ const StyledTableRow = styled(TableRow)(() => ({
   },
 }));
 
-function stringAvatar(name) {
-  return {
-    sx: {
-      bgcolor: '#F9F5FF',
-      color: '#7F56D9',
-      fontSize: '14px',
-      fontWeight: '500'
-    },
-    children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
-  };
-}
-
-// ----------------- Dummy Data Creation -----------------------
-function createData(id, name, username, course ,project, batch, status, placement) {
-  return { id, name, username, course, project, batch, status, placement };
-}
-
-const rows = [
-  createData('LR001', 'Brinsil Elias', 'brinsilelias01', 'FSD', 'ICTAK', 'May 2022' ,'Qualified', 'Placed'),
-  createData('LR002', 'Aravind Suresh', 'aravindsuresh09', 'DSA', 'KKEM', 'Jun 2022' ,'Qualified', 'Job Seeking'),
-  createData('LR003', 'Hari Shankar', 'harishankar07', 'ML-AI', 'NORKA', 'Aug 2022' ,'Qualified', 'Job Seeking'),
-  createData('LR004', 'Joydeep Raina', 'joydeepraina10', 'RPA', 'KDISC', 'Aug 2022' ,'Qualified', 'Job Seeking'),
-  createData('LR005', 'Rahul Govind', 'rahulgovind56', 'ST', 'KDISC', 'Dec 2022' ,'Not Qualified', 'Job Seeking'),
-  createData('LR006', 'Abhiram Vijayram', 'abhivijay98', 'CSA', 'NORKA', 'Dec 2022' ,'Not Qualified', 'Placed'),
-  createData('LR007', 'Joel Chacko', 'joelchacko97', 'FSD', 'ICTAK', 'Dec 2022' ,'Qualified', 'Job Seeking'),
-  createData('LR008', 'Agustine Jose', 'agunstinejose05', 'DSA', 'ICTAK', 'Mar 2022' ,'Qualified', 'Not Interested'),
-  createData('LR009', 'Serene Mathew', 'serenemathew04', 'ML-AI', 'KKEM', 'Mar 2022' ,'Qualified', 'Not Interested'),
-  createData('LR010', 'Sridhav M', 'msridhav01', 'RPA', 'KKEM', 'Mar 2022', 'Not Qualified', 'Placed'),
-];
-
-function createData1(id, name, username, email, password, course, project){
-  return {id, name, username, email, password, course, project}
-}
-
-const rows1 = [
-  createData1('TH001', 'Justin George', 'justingeorge01', 'justingeorge01@gmail.com', 'Justin#123', 'FSD', 'ICTAK'),
-  createData1('TH002', 'Jenny Marcus', 'jennymarcus77', 'jennymarcus77@gmail.com', 'Jenny#123', 'DSA', 'ICTAK'),
-  createData1('TH003', 'Samuel Joseph', 'samueljoseph10', 'samueljoseph10@gmail.com', 'Samuel#123', 'ML-AI', 'KKEM'),
-  createData1('TH004', 'Riya Sharma', 'riyasharma17', 'riyasharma17@gmail.com', 'Riya#123', 'RPA', 'NORKA'),
-  createData1('TH005', 'Shruthi Ramesh', 'shruthuramesh09', 'shruthuramesh09@gmail.com', 'Shruthi#123', 'ST', 'KDISC'),
-  createData1('TH006', 'Sila Mary', 'silamary01', 'silamary01@gmail.com', 'Sila#123', 'CSA', 'KDISC'),
-];
-
-function createData2(id, name, username, email, password, course, project){
-  return {id, name, username, email, password, course, project}
-}
-
-const rows2 = [
-  createData2('PO001', 'Siddharth Pandey', 'sdipandey01', 'sidpandey01@gmail.com', 'Sid#123', 'FSD', 'ICTAK'),
-  createData2('PO002', 'Gasni Mohammad', 'gasnimd99', 'gasnimd99@gmail.com', 'Gasni#123', 'DSA', 'ICTAK'),
-  createData2('PO003', 'Abhishek Subash', 'abhisubash87', 'abhisubash87@gmail.com', 'Abhi#123', 'ML-AI', 'KKEM'),
-  createData2('PO004', 'Akshaya Suresh', 'akshayasu78', 'akshayasu78@gmail.com', 'Akshaya#123', 'RPA', 'NORKA'),
-  createData2('PO005', 'Darshana Tanti', 'darshanatanti99', 'darshanatanti99@gmail.com', 'Darshana#123', 'ST', 'KDISC'),
-  createData2('PO006', 'Sparsha Shyam', 'sparsha03', 'sparsha03@gmail.com', 'Sparsha#123', 'CSA', 'KDISC'),
-];
-// ----------------- Dummy Data Creation -----------------------
+// function stringAvatar(name) {
+//   return {
+//     sx: {
+//       bgcolor: '#F9F5FF',
+//       color: '#7F56D9',
+//       fontSize: '14px',
+//       fontWeight: '500'
+//     },
+//     children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+//   };
+// }
 
 function checkCourseStatus(status) {
   if(status.toLowerCase() === 'qualified'){
@@ -115,13 +71,27 @@ function checkPlacementStatus(status) {
   return <IndigoTag />
 }
 
-function AdminLearnerTable() {
+function LearnerTable() {
+  const serverApi = "http://localhost:8080/learnersdata"
+  const [data, setData] = useState([])
+  const [role, setRole] = useState(sessionStorage.getItem("userRole"))
+
+  useEffect(() =>{
+    axios.get(serverApi).then(
+        (response) =>{
+            setData(response.data)
+        }
+      )
+    },[]
+  )
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Learner Id</StyledTableCell>
+            <StyledTableCell></StyledTableCell>
+            <StyledTableCell>Sl.no</StyledTableCell>
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell>Username</StyledTableCell>
             <StyledTableCell>Course Name</StyledTableCell>
@@ -133,22 +103,35 @@ function AdminLearnerTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.id}>
-              <StyledTableCell style={{fontWeight: '500'}} component="th" scope="row">{row.id}</StyledTableCell>
+          {data.map((row, index) => (
+            <StyledTableRow key={row._id}>
+              <StyledTableCell component="th" scope="row">
+                <input type="checkbox" className="check-box"></input>
+              </StyledTableCell>
+              <StyledTableCell style={{fontWeight: 'var(--fw-md)'}}>{index + 1}</StyledTableCell> 
               <StyledTableCell style={nameColumnStyle}>
-                <Avatar {...stringAvatar(row.name)} />
+                {/* <Avatar {...stringAvatar(row.name)} /> */}
+                <Avatar sx={
+                      { bgcolor: '#F9F5FF',
+                        color: '#7F56D9',
+                        fontSize: '14px',
+                        fontWeight: '500' }
+                }>
+                  {row.name.split(' ')[0][0] + row.name.split(' ')[1][0]}
+                </Avatar>
                 <div>{row.name}</div>
               </StyledTableCell>
               <StyledTableCell>@{row.username}</StyledTableCell>
-              <StyledTableCell>{row.course}</StyledTableCell>
-              <StyledTableCell>{row.project}</StyledTableCell>
+              <StyledTableCell>{row.course.toUpperCase()}</StyledTableCell>
+              <StyledTableCell>{row.project.toUpperCase()}</StyledTableCell>
               <StyledTableCell>{row.batch}</StyledTableCell>
               <StyledTableCell>{checkCourseStatus(row.status)}</StyledTableCell>
               <StyledTableCell>{checkPlacementStatus(row.placement)}</StyledTableCell>
               <StyledTableCell align='right'>
-                <DeleteAction route={row.id} />
-                <LearnerEditAction route={row.id} data={row} />
+                {role === 'admin' && <DeleteAction route={row.id} />}
+                {role === 'admin' && <LearnerEditAction route={row.id} data={row} />}
+                {role === 'training head' && <TrainingHeadEditAction route={row.id} data={row} />}
+                {role === 'placement officer' && <PlacementOfficerEditAction route={row.id} data={row} />}
               </StyledTableCell>              
             </StyledTableRow>
           ))}
@@ -159,12 +142,24 @@ function AdminLearnerTable() {
 }
 
 function TrainingHeadTable() {
+  const serverApi = "http://localhost:8080/thusersdata"
+  const [data, setData] = useState([])
+
+  useEffect(() =>{
+    axios.get(serverApi).then(
+        (response) =>{
+            setData(response.data)
+        }
+      )
+    },[]
+  )
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>User Id</StyledTableCell>
+            <StyledTableCell></StyledTableCell>
+            <StyledTableCell>Sl.no</StyledTableCell>
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell>Username</StyledTableCell>
             <StyledTableCell>Email</StyledTableCell>
@@ -175,15 +170,28 @@ function TrainingHeadTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows1.map((row) => (
-            <StyledTableRow key={row.id}>
-              <StyledTableCell style={{fontWeight: '500'}} component="th" scope="row">{row.id}</StyledTableCell>
-              <StyledTableCell style={nameColumnStyle}><Avatar {...stringAvatar(row.name)} />{row.name}</StyledTableCell>
+          {data.map((row, index) => (
+            <StyledTableRow key={row._id}>
+              <StyledTableCell component="th" scope="row">
+                <input type="checkbox" className="check-box"></input>
+              </StyledTableCell>
+              <StyledTableCell style={{fontWeight: 'var(--fw-md)'}}>{index + 1}</StyledTableCell> 
+              <StyledTableCell style={nameColumnStyle}>
+                <Avatar sx={
+                        { bgcolor: '#F9F5FF',
+                          color: '#7F56D9',
+                          fontSize: '14px',
+                          fontWeight: '500' }
+                }>
+                  {row.name.split(' ')[0][0] + row.name.split(' ')[1][0]}
+                </Avatar>
+                {row.name}
+              </StyledTableCell>
               <StyledTableCell>@{row.username}</StyledTableCell>
               <StyledTableCell>{row.email}</StyledTableCell>
               <StyledTableCell>{row.password}</StyledTableCell>
-              <StyledTableCell>{row.course}</StyledTableCell>
-              <StyledTableCell>{row.project}</StyledTableCell>
+              <StyledTableCell>{row.course.toUpperCase()}</StyledTableCell>
+              <StyledTableCell>{row.project.toUpperCase()}</StyledTableCell>
               <StyledTableCell align='right'>
                 <DeleteAction route={row.id} />
                 <FacultyEditAction route={row.id} data={row} />               
@@ -197,12 +205,24 @@ function TrainingHeadTable() {
 }
 
 function PlacementOfficerTable() {
+  const serverApi = "http://localhost:8080/pousersdata"
+  const [data, setData] = useState([])
+
+  useEffect(() =>{
+    axios.get(serverApi).then(
+        (response) =>{
+            setData(response.data)
+        }
+      )
+    },[]
+  )
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>User Id</StyledTableCell>
+            <StyledTableCell></StyledTableCell>
+            <StyledTableCell>Sl.no</StyledTableCell>
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell>Username</StyledTableCell>
             <StyledTableCell>Email</StyledTableCell>
@@ -213,15 +233,28 @@ function PlacementOfficerTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows2.map((row) => (
-            <StyledTableRow key={row.id}>
-              <StyledTableCell style={{fontWeight: '500'}} component="th" scope="row">{row.id}</StyledTableCell>
-              <StyledTableCell style={nameColumnStyle}><Avatar {...stringAvatar(row.name)} />{row.name}</StyledTableCell>
+          {data.map((row, index) => (
+            <StyledTableRow key={row._id}>
+              <StyledTableCell component="th" scope="row">
+                <input type="checkbox" className="check-box"></input>
+              </StyledTableCell>
+              <StyledTableCell style={{fontWeight: 'var(--fw-md)'}}>{index + 1}</StyledTableCell> 
+              <StyledTableCell style={nameColumnStyle}>
+                <Avatar sx={
+                        { bgcolor: '#F9F5FF',
+                          color: '#7F56D9',
+                          fontSize: '14px',
+                          fontWeight: '500' }
+                  }>
+                  {row.name.split(' ')[0][0] + row.name.split(' ')[1][0]}
+                </Avatar>
+                {row.name}
+              </StyledTableCell>
               <StyledTableCell>@{row.username}</StyledTableCell>
               <StyledTableCell>{row.email}</StyledTableCell>
               <StyledTableCell>{row.password}</StyledTableCell>
-              <StyledTableCell>{row.course}</StyledTableCell>
-              <StyledTableCell>{row.project}</StyledTableCell>
+              <StyledTableCell>{row.course.toUpperCase()}</StyledTableCell>
+              <StyledTableCell>{row.project.toUpperCase()}</StyledTableCell>
               <StyledTableCell align='right'>
                 <DeleteAction route={row.id} />
                 <FacultyEditAction route={row.id} data={row} />                
@@ -234,94 +267,9 @@ function PlacementOfficerTable() {
   );
 }
 
-function TrainingHeadLearnerTable() {
-  return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Learner Id</StyledTableCell>
-            <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell>Username</StyledTableCell>
-            <StyledTableCell>Course Name</StyledTableCell>
-            <StyledTableCell>Project</StyledTableCell>
-            <StyledTableCell>Batch</StyledTableCell>
-            <StyledTableCell>Course Status</StyledTableCell>
-            <StyledTableCell>Placement Status</StyledTableCell>
-            <StyledTableCell></StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.id}>
-              <StyledTableCell style={{fontWeight: '500'}} component="th" scope="row">{row.id}</StyledTableCell>
-              <StyledTableCell style={nameColumnStyle}>
-                <Avatar {...stringAvatar(row.name)} />
-                <div>{row.name}</div>
-              </StyledTableCell>
-              <StyledTableCell>@{row.username}</StyledTableCell>
-              <StyledTableCell>{row.course}</StyledTableCell>
-              <StyledTableCell>{row.project}</StyledTableCell>
-              <StyledTableCell>{row.batch}</StyledTableCell>
-              <StyledTableCell>{checkCourseStatus(row.status)}</StyledTableCell>
-              <StyledTableCell>{checkPlacementStatus(row.placement)}</StyledTableCell>
-              <StyledTableCell align='right'>                
-                <TrainingHeadEditAction route={row.id} data={row} />
-              </StyledTableCell>              
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
-}
-
-function PlacementOffcierLearnerTable() {
-  return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Learner Id</StyledTableCell>
-            <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell>Username</StyledTableCell>
-            <StyledTableCell>Course Name</StyledTableCell>
-            <StyledTableCell>Project</StyledTableCell>
-            <StyledTableCell>Batch</StyledTableCell>
-            <StyledTableCell>Course Status</StyledTableCell>
-            <StyledTableCell>Placement Status</StyledTableCell>
-            <StyledTableCell></StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.id}>
-              <StyledTableCell style={{fontWeight: '500'}} component="th" scope="row">{row.id}</StyledTableCell>
-              <StyledTableCell style={nameColumnStyle}>
-                <Avatar {...stringAvatar(row.name)} />
-                <div>{row.name}</div>
-              </StyledTableCell>
-              <StyledTableCell>@{row.username}</StyledTableCell>
-              <StyledTableCell>{row.course}</StyledTableCell>
-              <StyledTableCell>{row.project}</StyledTableCell>
-              <StyledTableCell>{row.batch}</StyledTableCell>
-              <StyledTableCell>{checkCourseStatus(row.status)}</StyledTableCell>
-              <StyledTableCell>{checkPlacementStatus(row.placement)}</StyledTableCell>
-              <StyledTableCell align='right'>
-                <PlacementOfficerEditAction route={row.id} data={row} />
-              </StyledTableCell>              
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
-}
 
 export {
-        AdminLearnerTable, 
+        LearnerTable, 
         TrainingHeadTable, 
         PlacementOfficerTable, 
-        TrainingHeadLearnerTable, 
-        PlacementOffcierLearnerTable
       }

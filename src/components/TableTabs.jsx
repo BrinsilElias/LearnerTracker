@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import { AdminLearnerTable, 
+import { LearnerTable, 
          TrainingHeadTable, 
          PlacementOfficerTable, } from './UserTables';
 
@@ -50,7 +50,7 @@ function AdminTableTabs() {
 
   return (
     <Box sx={{ width: '100%' }}>
-        <Box sx={{ borderBottom: 1, borderColor: '#EAECF0' }}>
+        <Box sx={{ borderBottom: 1, borderColor: '#D2D7DF' }}>
             <Tabs 
                 value={value} 
                 onChange={handleChange} 
@@ -71,7 +71,7 @@ function AdminTableTabs() {
               <button className='btn btn-import' data-icon='import-icon'>import</button>
               <LearnerAddAction />
             </div>
-            <AdminLearnerTable />
+            <LearnerTable />
         </TabPanel>
         <TabPanel value={value} index={1}>
             <div className='dashboard-body-actions'>

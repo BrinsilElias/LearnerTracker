@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Avatar from '@mui/material/Avatar';
 import {Link} from 'react-router-dom';
 import logo from '../logo.svg';
 
@@ -21,6 +22,8 @@ const pageLinkStyle = {
   borderRadius: '0.3rem',
 }
 
+
+
 function LoginHeader() {
   return (
     <div>
@@ -40,9 +43,16 @@ function LoginHeader() {
   )
 }
 
-function DashboardHeader() {
+function DashboardHeader(props) {
+  const [name, setName] = useState(props.name)
+  const [role, setRole] = useState(props.role)
+
+  const handleSignOut = () => {
+    sessionStorage.clear()
+  }
+
   return (
-    <div>
+  <div>
     <header>
       <nav style={navStyle}>
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}} className="nav-item">
@@ -57,8 +67,20 @@ function DashboardHeader() {
             </Link>
           </div>
           <div className='nav-item-2'>
+            <Avatar sx={
+              { bgcolor: '#F9F5FF',
+                color: '#7F56D9',
+                fontSize: '14px',
+                fontWeight: '500' }
+            }>
+              {name === null ? 'AV' : name.split(' ')[0][0] + name.split(' ')[1][0]}
+            </Avatar>
+            <div>
+              <p className='xs-text-dark'>{name}</p>
+              <p className='xs-text-light'>{role}</p>
+            </div>
             <Link to={'/'}>
-              <button className='btn btn-sign-out' data-icon='signout-icon'>Sign Out</button>
+              <button onClick={handleSignOut} className='btn btn-sign-out' data-icon='signout-icon'>Sign Out</button>
             </Link>
           </div>
         </div>

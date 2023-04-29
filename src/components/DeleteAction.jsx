@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
 
 
-function DeleteAction(props) {
+function DeleteAction() {
   return (
     <AlertDialog.Root>
         <AlertDialog.Trigger asChild>
@@ -20,9 +20,9 @@ function DeleteAction(props) {
                     <AlertDialog.Cancel asChild>
                         <button className="btn btn-cancel">Cancel</button>
                     </AlertDialog.Cancel>
-                    <form action={'/' + props.route + '/delete'} method='POST'>
+                    <form>
                         <button className="btn btn-red">Delete</button>
-                    </form>                    
+                    </form>         
                 </div>
             </AlertDialog.Content>
         </AlertDialog.Portal>

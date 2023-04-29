@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const cardStyle = {
     display: 'grid',
@@ -6,10 +6,11 @@ const cardStyle = {
     padding: '1rem',
     minWidth: '220px',
     borderRadius: '0.5rem',
-    border: '1px solid #EAECF0',
+    border: '1px solid #D2D7DF',
 }
 
-function LearnerDataCard() {
+function LearnerDataCard({ data }) {
+
   return (
     <div style={cardStyle}>
         <div style={{display: 'flex', gap: '0.5rem', alignItems: 'center'}} className='card-header'>
@@ -17,15 +18,14 @@ function LearnerDataCard() {
             <p className="medium-text">Learners</p>
         </div>
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}} className='card-body'>
-            <div className='number'>
-                240
-            </div>
+            <div className='number'>{data}</div>
         </div>
     </div>
   )
 }
 
-function TrainingHeadDataCard() {
+function TrainingHeadDataCard({ data }) {
+
     return (
       <div style={cardStyle}>
           <div className='card-header'>
@@ -35,13 +35,14 @@ function TrainingHeadDataCard() {
             </div>
           </div>
           <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}} className='card-body'>
-              <div className='number'>30</div>
+              <div className='number'>{data}</div>
           </div>
       </div>
     )
 }
 
-function PlacementOfficerDataCard() {
+function PlacementOfficerDataCard({ data }) {
+
     return (
       <div style={cardStyle}>
           <div className='card-header'>
@@ -51,13 +52,14 @@ function PlacementOfficerDataCard() {
             </div>
           </div>
           <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}} className='card-body'>
-              <div className='number'>24</div>
+              <div className='number'>{data}</div>
           </div>
       </div>
     )
 }
 
-function QualifiedDataCard() {
+function QualifiedDataCard({ data }) {
+
     return (
       <div style={cardStyle}>
           <div className='card-header'>
@@ -67,13 +69,14 @@ function QualifiedDataCard() {
             </div>
           </div>
           <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}} className='card-body'>
-              <div className='number'>208</div>
+              <div className='number'>{data}</div>
           </div>
       </div>
     )
 }
 
-function PlacementDataCard() {
+function PlacementDataCard({ data }) {
+
     return (
       <div style={cardStyle}>
           <div className='card-header'>
@@ -83,7 +86,7 @@ function PlacementDataCard() {
             </div>
           </div>
           <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}} className='card-body'>
-              <div className='number'>89</div>
+              <div className='number'>{data}</div>
           </div>
       </div>
     )

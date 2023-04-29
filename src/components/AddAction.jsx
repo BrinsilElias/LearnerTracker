@@ -14,7 +14,6 @@ const inputStyle = {
     borderRadius: '0.5rem',
     border: '1px solid var(--clr-border)',
     width: '300px',
-    marginBottom: '20px',
 }
 
 const labelStyle = {
@@ -23,7 +22,7 @@ const labelStyle = {
     fontWeight: 'var(--fw-md)'
 }
 
-function LearnerAddAction(props) {
+function LearnerAddAction() {
   return (
     <Dialog.Root>
         <Dialog.Trigger asChild>
@@ -37,8 +36,8 @@ function LearnerAddAction(props) {
                 <Dialog.Description className="DialogDescription">
                     Add a new Learner here. Click Add details when you're done.
                 </Dialog.Description>
-                    <form action={'/' + props.route + '/edit'} method='POST'>
-                        <div style={{display: 'grid'}} className='form-body'>
+                    <form>
+                        <div style={{display: 'grid', gap:'1.25rem'}} className='form-body'>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="name-input">Name</label>
                                 <input style={inputStyle} id='name-input' type="text" placeholder='John Doe' />
@@ -83,7 +82,7 @@ function LearnerAddAction(props) {
   )
 }
 
-function FacultyAddAction(props) {
+function FacultyAddAction() {
   return (
     <Dialog.Root>
         <Dialog.Trigger asChild>
@@ -97,8 +96,8 @@ function FacultyAddAction(props) {
                 <Dialog.Description className="DialogDescription">
                     Add a new faculty profile here. Click Add details when you're done.
                 </Dialog.Description>
-                    <form action={'/' + props.route + '/edit'} method='POST'>
-                        <div style={{display: 'grid'}} className='form-body'>
+                    <form>
+                        <div style={{display: 'grid', gap:'1.25rem'}} className='form-body'>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="name-input">Name</label>
                                 <input style={inputStyle} id='name-input' type="text" placeholder='John Doe' />

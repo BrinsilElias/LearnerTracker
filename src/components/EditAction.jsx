@@ -14,7 +14,6 @@ const inputStyle = {
     borderRadius: '0.5rem',
     border: '1px solid var(--clr-border)',
     width: '300px',
-    marginBottom: '20px',
 }
 
 const labelStyle = {
@@ -37,8 +36,8 @@ function LearnerEditAction(props) {
                 <Dialog.Description className="DialogDescription">
                     Make changes to the profile here. Click save when you're done.
                 </Dialog.Description>
-                    <form action={'/' + props.route + '/edit'} method='POST'>
-                        <div style={{display: 'grid'}} className='form-body'>
+                    <form>
+                        <div style={{display: 'grid', gap:'1.25rem'}} className='form-body'>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="name-input">Name</label>
                                 <input style={inputStyle} id='name-input' type="text" defaultValue={props.data.name} />
@@ -98,7 +97,7 @@ function FacultyEditAction(props) {
                     Make changes to the profile here. Click save when you're done.
                 </Dialog.Description>
                     <form action={'/' + props.route + '/edit'} method='POST'>
-                        <div style={{display: 'grid'}} className='form-body'>
+                        <div style={{display: 'grid', gap:'1.25rem'}} className='form-body'>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="name-input">Name</label>
                                 <input style={inputStyle} id='name-input' type="text" defaultValue={props.data.name} />
@@ -154,7 +153,7 @@ function TrainingHeadEditAction(props) {
                       Make changes to the profile here. Click save when you're done.
                   </Dialog.Description>
                       <form action={'/' + props.route + '/edit'} method='POST'>
-                          <div style={{display: 'grid'}} className='form-body'>
+                          <div style={{display: 'grid', gap:'1.25rem'}} className='form-body'>
                               <div style={editInputStyle}>
                                   <label style={labelStyle} htmlFor="course-status-input">Course Status</label>
                                   <input style={inputStyle} id='course-status-input' type="text" defaultValue={props.data.status} />
@@ -190,7 +189,7 @@ function PlacementOfficerEditAction(props) {
                       Make changes to the profile here. Click save when you're done.
                   </Dialog.Description>
                       <form action={'/' + props.route + '/edit'} method='POST'>
-                          <div style={{display: 'grid'}} className='form-body'>
+                          <div style={{display: 'grid', gap:'1.25rem'}} className='form-body'>
                               <div style={editInputStyle}>
                                   <label style={labelStyle} htmlFor="placement-status-input">Placement Status</label>
                                   <input style={inputStyle} id='placement-status-input' type="text" defaultValue={props.data.placement} />
