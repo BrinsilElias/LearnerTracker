@@ -41,18 +41,6 @@ const StyledTableRow = styled(TableRow)(() => ({
   },
 }));
 
-// function stringAvatar(name) {
-//   return {
-//     sx: {
-//       bgcolor: '#F9F5FF',
-//       color: '#7F56D9',
-//       fontSize: '14px',
-//       fontWeight: '500'
-//     },
-//     children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
-//   };
-// }
-
 function checkCourseStatus(status) {
   if(status.toLowerCase() === 'qualified'){
     return <GreenTag />
@@ -110,7 +98,6 @@ function LearnerTable() {
               </StyledTableCell>
               <StyledTableCell style={{fontWeight: 'var(--fw-md)'}}>{index + 1}</StyledTableCell> 
               <StyledTableCell style={nameColumnStyle}>
-                {/* <Avatar {...stringAvatar(row.name)} /> */}
                 <Avatar sx={
                       { bgcolor: '#F9F5FF',
                         color: '#7F56D9',
@@ -124,14 +111,14 @@ function LearnerTable() {
               <StyledTableCell>@{row.username}</StyledTableCell>
               <StyledTableCell>{row.course.toUpperCase()}</StyledTableCell>
               <StyledTableCell>{row.project.toUpperCase()}</StyledTableCell>
-              <StyledTableCell>{row.batch}</StyledTableCell>
+              <StyledTableCell>{row.batch.toUpperCase()}</StyledTableCell>
               <StyledTableCell>{checkCourseStatus(row.status)}</StyledTableCell>
               <StyledTableCell>{checkPlacementStatus(row.placement)}</StyledTableCell>
               <StyledTableCell align='right'>
-                {role === 'admin' && <DeleteAction route={row.id} />}
-                {role === 'admin' && <LearnerEditAction route={row.id} data={row} />}
-                {role === 'training head' && <TrainingHeadEditAction route={row.id} data={row} />}
-                {role === 'placement officer' && <PlacementOfficerEditAction route={row.id} data={row} />}
+                {role === 'admin' && <DeleteAction data={row} />}
+                {role === 'admin' && <LearnerEditAction data={row} />}
+                {role === 'training head' && <TrainingHeadEditAction data={row} />}
+                {role === 'placement officer' && <PlacementOfficerEditAction data={row} />}
               </StyledTableCell>              
             </StyledTableRow>
           ))}
@@ -193,7 +180,7 @@ function TrainingHeadTable() {
               <StyledTableCell>{row.course.toUpperCase()}</StyledTableCell>
               <StyledTableCell>{row.project.toUpperCase()}</StyledTableCell>
               <StyledTableCell align='right'>
-                <DeleteAction route={row.id} />
+                <DeleteAction data={row} route={row.id} />
                 <FacultyEditAction route={row.id} data={row} />               
               </StyledTableCell>              
             </StyledTableRow>
@@ -256,7 +243,7 @@ function PlacementOfficerTable() {
               <StyledTableCell>{row.course.toUpperCase()}</StyledTableCell>
               <StyledTableCell>{row.project.toUpperCase()}</StyledTableCell>
               <StyledTableCell align='right'>
-                <DeleteAction route={row.id} />
+                <DeleteAction data={row} route={row.id} />
                 <FacultyEditAction route={row.id} data={row} />                
               </StyledTableCell>              
             </StyledTableRow>

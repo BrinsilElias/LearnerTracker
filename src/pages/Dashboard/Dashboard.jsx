@@ -43,7 +43,7 @@ function Dashboard() {
           <LearnerDataCard data={data.learners} />
           <QualifiedDataCard data={data.qualified} />
           <PlacementDataCard data={data.placed} />
-          <TrainingHeadDataCard data={data.qualified} />
+          <TrainingHeadDataCard data={data.traininghead} />
           <PlacementOfficerDataCard data={data.placementofficer} />
         </div>
         <div className='dashboard-body-table'>

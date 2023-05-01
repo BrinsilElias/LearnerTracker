@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LearnerAddAction, FacultyAddAction } from './AddAction';
+import { LearnerAddAction, ThAddAction, PoAddAction } from './AddAction';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -76,14 +76,14 @@ function AdminTableTabs() {
         <TabPanel value={value} index={1}>
             <div className='dashboard-body-actions'>
               <button className='btn btn-import' data-icon='import-icon'>import</button>
-              <FacultyAddAction />
+              <ThAddAction />
             </div>
             <TrainingHeadTable />
         </TabPanel>
         <TabPanel value={value} index={2}>
             <div className='dashboard-body-actions'>
               <button className='btn btn-import' data-icon='import-icon'>import</button>
-              <FacultyAddAction />
+              <PoAddAction />
             </div>
             <PlacementOfficerTable />
         </TabPanel>

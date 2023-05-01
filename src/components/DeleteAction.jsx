@@ -1,8 +1,24 @@
-import React from 'react';
+import axios from 'axios'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
 
 
-function DeleteAction() {
+function DeleteAction(props) {
+  const navigate = useNavigate()
+  const [userToken, setUserToken] = useState(sessionStorage.getItem("userToken"))
+  const serverApi = `http://localhost:8080/${props.data.role}/${props.data._id}/delete`
+  
+  const handleDelete = (event) =>{
+    const element = {
+        "token": userToken,
+    }
+    axios.post(serverApi, element)
+     .then(response=>{
+            navigate('/dashboard')
+        }
+    )      
+  }
   return (
     <AlertDialog.Root>
         <AlertDialog.Trigger asChild>
@@ -20,8 +36,8 @@ function DeleteAction() {
                     <AlertDialog.Cancel asChild>
                         <button className="btn btn-cancel">Cancel</button>
                     </AlertDialog.Cancel>
-                    <form>
-                        <button className="btn btn-red">Delete</button>
+                    <form onSubmit={handleDelete}>
+                        <button value={props.data._id} type='submit' className="btn btn-red">Delete</button>
                     </form>         
                 </div>
             </AlertDialog.Content>
