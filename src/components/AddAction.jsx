@@ -81,11 +81,22 @@ function LearnerAddAction() {
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="course-status-input">Course Status</label>
-                                <input style={inputStyle} name='status' id='course-status-input' type="text" placeholder='Qualified' onChange={changeMyData} />
+                                {/* <input style={inputStyle} name='status' id='course-status-input' type="text" placeholder='Qualified' onChange={changeMyData} /> */}
+                                <select style={inputStyle} name='status' id='course-status-input' onChange={changeMyData}>
+                                    <option>Select</option>
+                                    <option value='qualified'>Qualified</option>
+                                    <option value='not qualified'>Not Qualified</option>
+                                </select>
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="placement-status-input">Placement Status</label>
-                                <input style={inputStyle} name='placement' id='placement-status-input' type="text" placeholder='Placed' onChange={changeMyData}/>
+                                {/* <input style={inputStyle} name='placement' id='placement-status-input' type="text" placeholder='Placed' onChange={changeMyData}/> */}
+                                <select style={inputStyle} name='placement' id='placement-status-input' onChange={changeMyData}>
+                                    <option>Select</option>
+                                    <option value='placed'>Placed</option>
+                                    <option value='job seeking'>Job Seeking</option>
+                                    <option value='not interested'>Not Interested</option>
+                                </select>
                             </div>
                             <div style={{display: 'grid', gap: '1rem', gridTemplateColumns: '1fr 1fr'}} className='form-action'>
                                 <Dialog.Close asChild>
