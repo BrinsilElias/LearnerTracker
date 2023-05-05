@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { LearnerAddAction, ThAddAction, PoAddAction } from './AddAction';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import { LearnerAddAction, ThAddAction, PoAddAction } from './AddAction';
 import { LearnerTable, 
          TrainingHeadTable, 
          PlacementOfficerTable, } from './UserTables';

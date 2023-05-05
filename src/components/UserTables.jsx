@@ -111,7 +111,7 @@ function LearnerTable() {
               <StyledTableCell>@{row.username}</StyledTableCell>
               <StyledTableCell>{row.course.toUpperCase()}</StyledTableCell>
               <StyledTableCell>{row.project.toUpperCase()}</StyledTableCell>
-              <StyledTableCell>{row.batch.toUpperCase()}</StyledTableCell>
+              <StyledTableCell>{row.batch.charAt(0).toUpperCase() + row.batch.slice(1)}</StyledTableCell>
               <StyledTableCell>{checkCourseStatus(row.status)}</StyledTableCell>
               <StyledTableCell>{checkPlacementStatus(row.placement)}</StyledTableCell>
               <StyledTableCell align='right'>

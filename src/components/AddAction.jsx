@@ -47,7 +47,7 @@ function LearnerAddAction() {
   return (
     <Dialog.Root>
         <Dialog.Trigger asChild>
-            <button className='btn btn-add' data-icon='add-icon'>Add</button>
+            <button className='btn btn-add' data-icon="add-icon">Add Learner</button>
         </Dialog.Trigger>
         <Dialog.Portal>
             <Dialog.Overlay className="DialogOverlay" />
@@ -137,7 +137,7 @@ function ThAddAction() {
   return (
     <Dialog.Root>
         <Dialog.Trigger asChild>
-            <button className='btn btn-add' data-icon='add-icon'>Add</button>
+            <button className='btn btn-add' data-icon="add-icon">Add Training Head</button>
         </Dialog.Trigger>
         <Dialog.Portal>
             <Dialog.Overlay className="DialogOverlay" />
@@ -212,7 +212,7 @@ function PoAddAction() {
   return (
     <Dialog.Root>
         <Dialog.Trigger asChild>
-            <button className='btn btn-add' data-icon='add-icon'>Add</button>
+            <button className='btn btn-add' data-icon="add-icon">Add Placement Officer</button>
         </Dialog.Trigger>
         <Dialog.Portal>
             <Dialog.Overlay className="DialogOverlay" />
