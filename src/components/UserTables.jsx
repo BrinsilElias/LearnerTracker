@@ -100,7 +100,11 @@ function LearnerTable() {
                         fontSize: '14px',
                         fontWeight: '500' }
                 }>
-                  {row.name.split(' ')[0][0] + row.name.split(' ')[1][0]}
+                  {
+                    row.name && row.name.includes(' ')
+                    ? row.name.split(' ')[0][0] + row.name.split(' ')[1][0]
+                    : 'AV'
+                  }
                 </Avatar>
                 <div>{row.name}</div>
               </StyledTableCell>
@@ -173,7 +177,11 @@ function TrainingHeadTable() {
                           fontSize: '14px',
                           fontWeight: '500' }
                 }>
-                  {row.name.split(' ')[0][0] + row.name.split(' ')[1][0]}
+                  {
+                    row.name && row.name.includes(' ')
+                    ? row.name.split(' ')[0][0] + row.name.split(' ')[1][0]
+                    : 'AV'
+                  }
                 </Avatar>
                 {row.name}
               </StyledTableCell>
@@ -255,7 +263,11 @@ function PlacementOfficerTable() {
                           fontSize: '14px',
                           fontWeight: '500' }
                   }>
-                  {row.name.split(' ')[0][0] + row.name.split(' ')[1][0]}
+                  {
+                    row.name && row.name.includes(' ')
+                    ? row.name.split(' ')[0][0] + row.name.split(' ')[1][0]
+                    : 'AV'
+                  }
                 </Avatar>
                 {row.name}
               </StyledTableCell>

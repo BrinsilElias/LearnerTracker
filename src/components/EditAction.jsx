@@ -228,7 +228,7 @@ function TrainingHeadEditAction(props) {
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="course-status-input">Course Status</label>
                                 <select style={inputStyle} name='status' id='course-status-input' onChange={changeMyData}>
-                                    <option>Select</option>
+                                    <option>{props.data.status}</option>
                                     <option value='qualified'>Qualified</option>
                                     <option value='not qualified'>Not Qualified</option>
                                 </select>
@@ -288,7 +288,7 @@ function PlacementOfficerEditAction(props) {
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="placement-status-input">Placement Status</label>
                                 <select style={inputStyle} name='placement' id='placement-status-input' onChange={changeMyData}>
-                                    <option>Select</option>
+                                    <option>{props.data.placement}</option>
                                     <option value='placed'>Placed</option>
                                     <option value='job seeking'>Job Seeking</option>
                                     <option value='not interested'>Not Interested</option>

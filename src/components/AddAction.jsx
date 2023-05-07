@@ -61,27 +61,26 @@ function LearnerAddAction() {
                         <div style={{display: 'grid', gap:'1.25rem'}} className='form-body'>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="name-input">Name</label>
-                                <input style={inputStyle} name='name' id='name-input' type="text" placeholder='John Doe' onChange={changeMyData} />
+                                <input style={inputStyle} name='name' id='name-input' type="text" placeholder='John Doe' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="username-input">Username</label>
-                                <input style={inputStyle} name='username' id='username-input' type="text" placeholder='@johndoe' onChange={changeMyData} />
+                                <input style={inputStyle} name='username' id='username-input' type="text" placeholder='@johndoe' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="batch-input">Batch</label>
-                                <input style={inputStyle} name='batch' id='batch-input' type="text" placeholder='May 2022' onChange={changeMyData} />
+                                <input style={inputStyle} name='batch' id='batch-input' type="text" placeholder='May 2022' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="project-input">Project</label>
-                                <input style={inputStyle} name='project' id='project-input' type="text" placeholder='ICTAK' onChange={changeMyData} />
+                                <input style={inputStyle} name='project' id='project-input' type="text" placeholder='ICTAK' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="course-input">Course Name</label>
-                                <input style={inputStyle} name='course' id='course-input' type="text" placeholder='FSD' onChange={changeMyData} />
+                                <input style={inputStyle} name='course' id='course-input' type="text" placeholder='FSD' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="course-status-input">Course Status</label>
-                                {/* <input style={inputStyle} name='status' id='course-status-input' type="text" placeholder='Qualified' onChange={changeMyData} /> */}
                                 <select style={inputStyle} name='status' id='course-status-input' onChange={changeMyData}>
                                     <option>Select</option>
                                     <option value='qualified'>Qualified</option>
@@ -90,7 +89,6 @@ function LearnerAddAction() {
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="placement-status-input">Placement Status</label>
-                                {/* <input style={inputStyle} name='placement' id='placement-status-input' type="text" placeholder='Placed' onChange={changeMyData}/> */}
                                 <select style={inputStyle} name='placement' id='placement-status-input' onChange={changeMyData}>
                                     <option>Select</option>
                                     <option value='placed'>Placed</option>
@@ -151,27 +149,27 @@ function ThAddAction() {
                         <div style={{display: 'grid', gap:'1.25rem'}} className='form-body'>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="name-input">Name</label>
-                                <input style={inputStyle} name='name' id='name-input' type="text" placeholder='John Doe' onChange={changeMyData} />
+                                <input style={inputStyle} name='name' id='name-input' type="text" placeholder='John Doe' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="username-input">Username</label>
-                                <input style={inputStyle} name='username' id='username-input' type="text" placeholder='@johndoe' onChange={changeMyData} />
+                                <input style={inputStyle} name='username' id='username-input' type="text" placeholder='@johndoe' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="project-input">Project</label>
-                                <input style={inputStyle} name='project' id='project-input' type="text" placeholder='ICTAK' onChange={changeMyData} />
+                                <input style={inputStyle} name='project' id='project-input' type="text" placeholder='ICTAK' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="course-input">Course Name</label>
-                                <input style={inputStyle} name='course' id='course-input' type="text" placeholder='FSD' onChange={changeMyData} />
+                                <input style={inputStyle} name='course' id='course-input' type="text" placeholder='FSD' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="email-input">Email</label>
-                                <input style={inputStyle} name='email' id='email-input' type="email" placeholder='johndoe@email.com' onChange={changeMyData} />
+                                <input style={inputStyle} name='email' id='email-input' type="email" placeholder='johndoe@email.com' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="password-input">Password</label>
-                                <input style={inputStyle} name='password' id='password-input' type="password" placeholder='Password' onChange={changeMyData} />
+                                <input style={inputStyle} name='password' id='password-input' type="password" placeholder='Password' onChange={changeMyData} required />
                             </div>
                             <div style={{display: 'grid', gap: '1rem', gridTemplateColumns: '1fr 1fr'}} className='form-action'>
                                 <Dialog.Close asChild>
@@ -226,27 +224,27 @@ function PoAddAction() {
                         <div style={{display: 'grid', gap:'1.25rem'}} className='form-body'>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="name-input">Name</label>
-                                <input style={inputStyle} name='name' id='name-input' type="text" placeholder='John Doe' onChange={changeMyData} />
+                                <input style={inputStyle} name='name' id='name-input' type="text" placeholder='John Doe' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="username-input">Username</label>
-                                <input style={inputStyle} name='username' id='username-input' type="text" placeholder='@johndoe' onChange={changeMyData} />
+                                <input style={inputStyle} name='username' id='username-input' type="text" placeholder='@johndoe' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="project-input">Project</label>
-                                <input style={inputStyle} name='project' id='project-input' type="text" placeholder='ICTAK' onChange={changeMyData} />
+                                <input style={inputStyle} name='project' id='project-input' type="text" placeholder='ICTAK' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="course-input">Course Name</label>
-                                <input style={inputStyle} name='course' id='course-input' type="text" placeholder='FSD' onChange={changeMyData} />
+                                <input style={inputStyle} name='course' id='course-input' type="text" placeholder='FSD' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="email-input">Email</label>
-                                <input style={inputStyle} name='email' id='email-input' type="email" placeholder='johndoe@email.com' onChange={changeMyData} />
+                                <input style={inputStyle} name='email' id='email-input' type="email" placeholder='johndoe@email.com' onChange={changeMyData} required />
                             </div>
                             <div style={editInputStyle}>
                                 <label style={labelStyle} htmlFor="password-input">Password</label>
-                                <input style={inputStyle} name='password' id='password-input' type="password" placeholder='Password' onChange={changeMyData} />
+                                <input style={inputStyle} name='password' id='password-input' type="password" placeholder='Password' onChange={changeMyData} required />
                             </div>
                             <div style={{display: 'grid', gap: '1rem', gridTemplateColumns: '1fr 1fr'}} className='form-action'>
                                 <Dialog.Close asChild>
