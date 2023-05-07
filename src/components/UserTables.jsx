@@ -78,7 +78,6 @@ function LearnerTable() {
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell></StyledTableCell>
             <StyledTableCell>Sl.no</StyledTableCell>
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell>Username</StyledTableCell>
@@ -93,9 +92,6 @@ function LearnerTable() {
         <TableBody>
           {data.map((row, index) => (
             <StyledTableRow key={row._id}>
-              <StyledTableCell component="th" scope="row">
-                <input type="checkbox" className="check-box"></input>
-              </StyledTableCell>
               <StyledTableCell style={{fontWeight: 'var(--fw-md)'}}>{index + 1}</StyledTableCell> 
               <StyledTableCell style={nameColumnStyle}>
                 <Avatar sx={
@@ -131,6 +127,15 @@ function LearnerTable() {
 function TrainingHeadTable() {
   const serverApi = "http://localhost:8080/thusersdata"
   const [data, setData] = useState([])
+  const [visiblePasswordRows, setVisiblePasswordRows] = useState([]);
+
+  const togglePasswordVisibility = (rowId) => {
+    if (visiblePasswordRows.includes(rowId)) {
+      setVisiblePasswordRows(visiblePasswordRows.filter(id => id !== rowId));
+    } else {
+      setVisiblePasswordRows([...visiblePasswordRows, rowId]);
+    }
+  }
 
   useEffect(() =>{
     axios.get(serverApi).then(
@@ -140,28 +145,26 @@ function TrainingHeadTable() {
       )
     },[]
   )
+
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell></StyledTableCell>
             <StyledTableCell>Sl.no</StyledTableCell>
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell>Username</StyledTableCell>
-            <StyledTableCell>Email</StyledTableCell>
-            <StyledTableCell>Password</StyledTableCell>
             <StyledTableCell>Course</StyledTableCell>
             <StyledTableCell>Project</StyledTableCell>
+            <StyledTableCell>Email</StyledTableCell>
+            <StyledTableCell>Password</StyledTableCell>
             <StyledTableCell></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data.map((row, index) => (
             <StyledTableRow key={row._id}>
-              <StyledTableCell component="th" scope="row">
-                <input type="checkbox" className="check-box"></input>
-              </StyledTableCell>
               <StyledTableCell style={{fontWeight: 'var(--fw-md)'}}>{index + 1}</StyledTableCell> 
               <StyledTableCell style={nameColumnStyle}>
                 <Avatar sx={
@@ -175,11 +178,25 @@ function TrainingHeadTable() {
                 {row.name}
               </StyledTableCell>
               <StyledTableCell>@{row.username}</StyledTableCell>
-              <StyledTableCell>{row.email}</StyledTableCell>
-              <StyledTableCell>{row.password}</StyledTableCell>
               <StyledTableCell>{row.course.toUpperCase()}</StyledTableCell>
               <StyledTableCell>{row.project.toUpperCase()}</StyledTableCell>
+              <StyledTableCell>{row.email}</StyledTableCell>
+              <StyledTableCell>
+                  {
+                    visiblePasswordRows.includes(row._id) ? 
+                    <span>{row.password}</span> : 
+                    <span>*********</span>
+                  }
+              </StyledTableCell>
               <StyledTableCell align='right'>
+                <button 
+                    className='btn btn-show' 
+                    data-icon="show-icon"
+                    onMouseDown={() => togglePasswordVisibility(row._id)}
+                    onMouseUp={() => togglePasswordVisibility(row._id)}
+                    onMouseLeave={() => setVisiblePasswordRows(visiblePasswordRows.filter(id => id !== row._id))}
+                >
+                </button>
                 <DeleteAction data={row} route={row.id} />
                 <FacultyEditAction route={row.id} data={row} />               
               </StyledTableCell>              
@@ -194,6 +211,15 @@ function TrainingHeadTable() {
 function PlacementOfficerTable() {
   const serverApi = "http://localhost:8080/pousersdata"
   const [data, setData] = useState([])
+  const [visiblePasswordRows, setVisiblePasswordRows] = useState([]);
+
+  const togglePasswordVisibility = (rowId) => {
+    if (visiblePasswordRows.includes(rowId)) {
+      setVisiblePasswordRows(visiblePasswordRows.filter(id => id !== rowId));
+    } else {
+      setVisiblePasswordRows([...visiblePasswordRows, rowId]);
+    }
+  }
 
   useEffect(() =>{
     axios.get(serverApi).then(
@@ -208,23 +234,19 @@ function PlacementOfficerTable() {
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell></StyledTableCell>
             <StyledTableCell>Sl.no</StyledTableCell>
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell>Username</StyledTableCell>
-            <StyledTableCell>Email</StyledTableCell>
-            <StyledTableCell>Password</StyledTableCell>
             <StyledTableCell>Course</StyledTableCell>
             <StyledTableCell>Project</StyledTableCell>
+            <StyledTableCell>Email</StyledTableCell>
+            <StyledTableCell>Password</StyledTableCell>
             <StyledTableCell></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data.map((row, index) => (
             <StyledTableRow key={row._id}>
-              <StyledTableCell component="th" scope="row">
-                <input type="checkbox" className="check-box"></input>
-              </StyledTableCell>
               <StyledTableCell style={{fontWeight: 'var(--fw-md)'}}>{index + 1}</StyledTableCell> 
               <StyledTableCell style={nameColumnStyle}>
                 <Avatar sx={
@@ -238,11 +260,25 @@ function PlacementOfficerTable() {
                 {row.name}
               </StyledTableCell>
               <StyledTableCell>@{row.username}</StyledTableCell>
-              <StyledTableCell>{row.email}</StyledTableCell>
-              <StyledTableCell>{row.password}</StyledTableCell>
               <StyledTableCell>{row.course.toUpperCase()}</StyledTableCell>
               <StyledTableCell>{row.project.toUpperCase()}</StyledTableCell>
+              <StyledTableCell>{row.email}</StyledTableCell>
+              <StyledTableCell>
+                  {
+                    visiblePasswordRows.includes(row._id) ? 
+                    <span>{row.password}</span> : 
+                    <span>*********</span>
+                  }
+              </StyledTableCell>
               <StyledTableCell align='right'>
+                <button 
+                    className='btn btn-show' 
+                    data-icon="show-icon"
+                    onMouseDown={() => togglePasswordVisibility(row._id)}
+                    onMouseUp={() => togglePasswordVisibility(row._id)}
+                    onMouseLeave={() => setVisiblePasswordRows(visiblePasswordRows.filter(id => id !== row._id))}
+                >
+                </button>
                 <DeleteAction data={row} route={row.id} />
                 <FacultyEditAction route={row.id} data={row} />                
               </StyledTableCell>              

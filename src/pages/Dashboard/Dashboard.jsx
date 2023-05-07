@@ -6,6 +6,7 @@ import {DashboardHeader} from '../../components/Headers';
 import {AdminTableTabs} from '../../components/TableTabs';
 import { LearnerTable } from '../../components/UserTables';
 import { LearnerAddAction } from '../../components/AddAction';
+import { LearnerImportAction } from '../../components/ImportAction';
 import { LearnerDataCard, 
          TrainingHeadDataCard, 
          PlacementOfficerDataCard , 
@@ -53,7 +54,7 @@ function Dashboard() {
             </div>}
           {role === 'training head' && <div style={{marginTop: '1rem'}}>
               <div className='dashboard-body-actions'>
-                <button className='btn btn-import' data-icon='import-icon'>import</button>
+                <LearnerImportAction />
                 <LearnerAddAction />
               </div>
               <LearnerTable />

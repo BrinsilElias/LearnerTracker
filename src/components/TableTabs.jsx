@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import { LearnerImportAction, UserImportAction } from './ImportAction';
 import { LearnerAddAction, ThAddAction, PoAddAction } from './AddAction';
 import { LearnerTable, 
          TrainingHeadTable, 
@@ -68,21 +69,21 @@ function AdminTableTabs() {
         </Box>
         <TabPanel value={value} index={0}>
             <div className='dashboard-body-actions'>
-              <button className='btn btn-import' data-icon='import-icon'>import</button>
+              <LearnerImportAction />
               <LearnerAddAction />
             </div>
             <LearnerTable />
         </TabPanel>
         <TabPanel value={value} index={1}>
             <div className='dashboard-body-actions'>
-              <button className='btn btn-import' data-icon='import-icon'>import</button>
+              <UserImportAction />
               <ThAddAction />
             </div>
             <TrainingHeadTable />
         </TabPanel>
         <TabPanel value={value} index={2}>
             <div className='dashboard-body-actions'>
-              <button className='btn btn-import' data-icon='import-icon'>import</button>
+              <UserImportAction />
               <PoAddAction />
             </div>
             <PlacementOfficerTable />

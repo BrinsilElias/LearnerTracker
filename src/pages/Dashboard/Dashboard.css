@@ -50,10 +50,17 @@
     border: 1px solid var(--clr-border);
 }
 
-.btn-delete, 
+.btn-delete,
+.btn-show,
 .btn-edit {
     padding-block: 0;
     background-color: var(--clr-neutral-100);
+}
+
+.btn-remove {
+    cursor: pointer;
+    padding-block: 0;
+    background-color: #F9F5FF;
 }
 
 .btn-sign-out {
@@ -66,6 +73,17 @@
 .btn-submit {
     background-color: var(--clr-primary);
     color: var(--clr-neutral-100);
+}
+
+.file-label {
+    cursor: pointer;
+    font-size: 0.925rem;
+    font-weight: var(--fw-md);
+    color: var(--clr-primary);
+}
+
+.nofile-label {
+    cursor: pointer;
 }
 
 .btn[data-icon="signout-icon"]::after {
@@ -92,6 +110,24 @@
     background-position: center;
     background-size: cover;
     width: 18px;
+    aspect-ratio: 1;
+}
+
+.btn[data-icon="show-icon"]::before {
+    content: "";
+    background-image: url("../../icons/show-eye.svg");  
+    background-position: center;
+    background-size: cover;
+    width: 18px;
+    aspect-ratio: 1;
+}
+
+.btn[data-icon="remove-icon"]::before {
+    content: "";
+    background-image: url("../../icons/remove.svg");  
+    background-position: center;
+    background-size: cover;
+    width: 22px;
     aspect-ratio: 1;
 }
 
@@ -130,6 +166,14 @@
     width: 29px;
     aspect-ratio: 1;
     background-image: url('../../icons/user.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+.file-icon {
+    width: 25px;
+    aspect-ratio: 1;
+    background-image: url('../../icons/file-check.svg');
     background-position: center;
     background-size: contain;
 }
@@ -291,6 +335,15 @@
     width: 48px;
     aspect-ratio: 1;
     background-image: url("../../icons/add-profile.svg");
+    background-position: center;
+    background-size: contain;
+}
+
+.import-icon {
+    margin-bottom: 0.8rem;
+    width: 48px;
+    aspect-ratio: 1;
+    background-image: url("../../icons/import-profile.svg");
     background-position: center;
     background-size: contain;
 }

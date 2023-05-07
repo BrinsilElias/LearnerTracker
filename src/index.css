@@ -226,6 +226,10 @@ input[type="checkbox"]:checked::before {
     transform: scale(1);
 }
 
+input[type="file"] {
+  display: none;
+}
+
 select {
   outline: none;
 }
