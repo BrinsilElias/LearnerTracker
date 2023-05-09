@@ -103,8 +103,9 @@ function LearnerTable() {
                         fontWeight: '500' }
                 }>
                   {
-                    row.name && row.name.includes(' ')
-                    ? row.name.split(' ')[0][0] + row.name.split(' ')[1][0]
+                    row.name ? 
+                      row.name.includes(' ')
+                      ? row.name.split(' ')[0][0] + row.name.split(' ')[1][0] : row.name.split(' ')[0][0]
                     : 'AV'
                   }
                 </Avatar>
@@ -180,8 +181,9 @@ function TrainingHeadTable() {
                           fontWeight: '500' }
                 }>
                   {
-                    row.name && row.name.includes(' ')
-                    ? row.name.split(' ')[0][0] + row.name.split(' ')[1][0]
+                    row.name ? 
+                      row.name.includes(' ')
+                      ? row.name.split(' ')[0][0] + row.name.split(' ')[1][0] : row.name.split(' ')[0][0]
                     : 'AV'
                   }
                 </Avatar>
@@ -266,8 +268,9 @@ function PlacementOfficerTable() {
                           fontWeight: '500' }
                   }>
                   {
-                    row.name && row.name.includes(' ')
-                    ? row.name.split(' ')[0][0] + row.name.split(' ')[1][0]
+                    row.name ? 
+                      row.name.includes(' ')
+                      ? row.name.split(' ')[0][0] + row.name.split(' ')[1][0] : row.name.split(' ')[0][0]
                     : 'AV'
                   }
                 </Avatar>
