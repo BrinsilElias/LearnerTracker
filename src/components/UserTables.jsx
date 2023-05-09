@@ -9,7 +9,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { GreenTag, YellowTag, BlueTag, PurpleTag, IndigoTag } from './StatusTags';
+import { GreenTag, YellowTag, BlueTag, PurpleTag, IndigoTag, GreyTag } from './StatusTags';
 import DeleteAction from './DeleteAction';
 import {LearnerEditAction, 
         FacultyEditAction, 
@@ -42,21 +42,23 @@ const StyledTableRow = styled(TableRow)(() => ({
 }));
 
 function checkCourseStatus(status) {
-  if(status.toLowerCase() === 'qualified'){
+  if(status && status.toLowerCase() === 'qualified'){
     return <GreenTag />
+  }else if(status && status.toLowerCase() === 'not qualified'){
+    return <YellowTag />
   }
-  return <YellowTag />
+  return <GreyTag />
 }
 
 function checkPlacementStatus(status) {
-  if(status.toLowerCase() === 'placed'){
+  if(status && status.toLowerCase() === 'placed'){
     return <PurpleTag />
-  }
-  
-  if(status.toLowerCase() === 'job seeking'){
+  }else if(status && status.toLowerCase() === 'job seeking'){
     return <BlueTag />
+  }else if(status && status.toLowerCase() === 'not interested'){
+    return <IndigoTag />
   }
-  return <IndigoTag />
+  return <GreyTag />
 }
 
 function LearnerTable() {

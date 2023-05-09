@@ -216,6 +216,12 @@
     width: 99px;
 }
 
+.grey-tag {
+    background-color: #F8F9FC;
+    color: #363F72;
+    width: 75px;
+}
+
 /* Radix UI Alert Box */
 .AlertDialogOverlay {
     background-color: var(--clr-overlay);

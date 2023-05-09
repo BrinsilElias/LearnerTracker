@@ -50,5 +50,13 @@ function IndigoTag() {
   )
 }
 
+function GreyTag() {
+  return (
+    <div style={tagStyle} className='tags grey-tag'>
+        No Status
+    </div>
+  )
+}
 
-export { GreenTag, YellowTag, PurpleTag, BlueTag, IndigoTag }
+
+export { GreenTag, YellowTag, PurpleTag, BlueTag, IndigoTag, GreyTag }
