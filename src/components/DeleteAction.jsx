@@ -6,7 +6,7 @@ import * as AlertDialog from '@radix-ui/react-alert-dialog';
 
 function DeleteAction(props) {
   const navigate = useNavigate()
-  const serverApi = `http://localhost:8080/${props.data.role}/${props.data._id}/delete`
+  const serverApi = `http://localhost:8080/api/${props.data.role}/${props.data._id}/delete`
 
   const [userToken, setUserToken] = useState(sessionStorage.getItem("userToken"))
   

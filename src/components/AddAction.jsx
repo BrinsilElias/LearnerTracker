@@ -29,7 +29,7 @@ function LearnerAddAction() {
   const navigate = useNavigate()
   const [userToken, setToken] = useState(sessionStorage.getItem("userToken"))
   
-  const serverApi = "http://localhost:8080/learner/add"
+  const serverApi = "http://localhost:8080/api/learner/add"
   
   const changeMyData = (event) => {
     setInput({
@@ -117,7 +117,7 @@ function ThAddAction() {
   const navigate = useNavigate()
   const [userToken, setToken] = useState(sessionStorage.getItem("userToken"))
   
-  const serverApi = "http://localhost:8080/user/add"
+  const serverApi = "http://localhost:8080/api/user/add"
   
   const changeMyData = (event) => {
     setInput({
@@ -192,7 +192,7 @@ function PoAddAction() {
   const navigate = useNavigate()
   const [userToken, setToken] = useState(sessionStorage.getItem("userToken"))
   
-  const serverApi = "http://localhost:8080/user/add"
+  const serverApi = "http://localhost:8080/api/user/add"
   
   const changeMyData = (event) => {
     setInput({

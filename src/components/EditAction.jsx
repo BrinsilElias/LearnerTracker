@@ -29,7 +29,7 @@ function LearnerEditAction(props) {
   const [input, setInput] = useState({})
   const [userToken, setUserToken] = useState(sessionStorage.getItem("userToken"))
 
-  const serverApi = `http://localhost:8080/${props.data._id}/learner/edit`
+  const serverApi = `http://localhost:8080/api/${props.data._id}/learner/edit`
 
   const changeMyData = (event) => {
     setInput({
@@ -141,7 +141,7 @@ function FacultyEditAction(props) {
   const [input, setInput] = useState({})
   const [userToken, setUserToken] = useState(sessionStorage.getItem("userToken"))
 
-  const serverApi = `http://localhost:8080/${props.data._id}/user/edit`
+  const serverApi = `http://localhost:8080/api/${props.data._id}/user/edit`
 
   const changeMyData = (event) => {
     setInput({
@@ -217,7 +217,7 @@ function TrainingHeadEditAction(props) {
   const [input, setInput] = useState({})
   const [userToken, setUserToken] = useState(sessionStorage.getItem("userToken"))
 
-  const serverApi = `http://localhost:8080/${props.data._id}/learner/edit`
+  const serverApi = `http://localhost:8080/api/${props.data._id}/learner/edit`
 
   const changeMyData = (event) => {
     setInput({
@@ -277,7 +277,7 @@ function PlacementOfficerEditAction(props) {
   const [input, setInput] = useState({})
   const [userToken, setUserToken] = useState(sessionStorage.getItem("userToken"))
 
-  const serverApi = `http://localhost:8080/${props.data._id}/learner/edit`
+  const serverApi = `http://localhost:8080/api/${props.data._id}/learner/edit`
 
   const changeMyData = (event) => {
     setInput({

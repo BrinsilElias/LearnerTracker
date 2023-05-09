@@ -73,7 +73,11 @@ function DashboardHeader(props) {
                 fontSize: '14px',
                 fontWeight: '500' }
             }>
-              {name === null ? 'AV' : name.split(' ')[0][0] + name.split(' ')[1][0]}
+              {name 
+                ? name.includes(' ') 
+                  ?  name.split(' ')[0][0] + name.split(' ')[1][0]  : name.split(' ')[0][0]
+                : 'AV'
+              }
             </Avatar>
             <div>
               <p className='xs-text-dark'>{name}</p>

@@ -62,7 +62,7 @@ function checkPlacementStatus(status) {
 }
 
 function LearnerTable() {
-  const serverApi = "http://localhost:8080/learnersdata"
+  const serverApi = "http://localhost:8080/api/learnersdata"
   const [data, setData] = useState([])
   const [role, setRole] = useState(sessionStorage.getItem("userRole"))
 
@@ -111,9 +111,9 @@ function LearnerTable() {
                 <div>{row.name}</div>
               </StyledTableCell>
               <StyledTableCell>@{row.username}</StyledTableCell>
-              <StyledTableCell>{row.course.toUpperCase()}</StyledTableCell>
-              <StyledTableCell>{row.project.toUpperCase()}</StyledTableCell>
-              <StyledTableCell>{row.batch.charAt(0).toUpperCase() + row.batch.slice(1)}</StyledTableCell>
+              <StyledTableCell>{row.course ? row.course.toUpperCase() : ''}</StyledTableCell>
+              <StyledTableCell>{row.project ? row.project.toUpperCase() : ''}</StyledTableCell>
+              <StyledTableCell>{row.batch ? row.batch.charAt(0).toUpperCase() + row.batch.slice(1) : ''}</StyledTableCell>
               <StyledTableCell>{checkCourseStatus(row.status)}</StyledTableCell>
               <StyledTableCell>{checkPlacementStatus(row.placement)}</StyledTableCell>
               <StyledTableCell align='right'>
@@ -131,7 +131,7 @@ function LearnerTable() {
 }
 
 function TrainingHeadTable() {
-  const serverApi = "http://localhost:8080/thusersdata"
+  const serverApi = "http://localhost:8080/api/thusersdata"
   const [data, setData] = useState([])
   const [visiblePasswordRows, setVisiblePasswordRows] = useState([]);
 
@@ -188,8 +188,8 @@ function TrainingHeadTable() {
                 {row.name}
               </StyledTableCell>
               <StyledTableCell>@{row.username}</StyledTableCell>
-              <StyledTableCell>{row.course.toUpperCase()}</StyledTableCell>
-              <StyledTableCell>{row.project.toUpperCase()}</StyledTableCell>
+              <StyledTableCell>{row.course ? row.course.toUpperCase() : ''}</StyledTableCell>
+              <StyledTableCell>{row.project ? row.project.toUpperCase() : ''}</StyledTableCell>
               <StyledTableCell>{row.email}</StyledTableCell>
               <StyledTableCell>
                   {
@@ -219,7 +219,7 @@ function TrainingHeadTable() {
 }
 
 function PlacementOfficerTable() {
-  const serverApi = "http://localhost:8080/pousersdata"
+  const serverApi = "http://localhost:8080/api/pousersdata"
   const [data, setData] = useState([])
   const [visiblePasswordRows, setVisiblePasswordRows] = useState([]);
 
@@ -274,8 +274,8 @@ function PlacementOfficerTable() {
                 {row.name}
               </StyledTableCell>
               <StyledTableCell>@{row.username}</StyledTableCell>
-              <StyledTableCell>{row.course.toUpperCase()}</StyledTableCell>
-              <StyledTableCell>{row.project.toUpperCase()}</StyledTableCell>
+              <StyledTableCell>{row.course ? row.course.toUpperCase() : ''}</StyledTableCell>
+              <StyledTableCell>{row.course ? row.project.toUpperCase() : ''}</StyledTableCell>
               <StyledTableCell>{row.email}</StyledTableCell>
               <StyledTableCell>
                   {

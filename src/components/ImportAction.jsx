@@ -47,7 +47,7 @@ function LearnerImportAction() {
     Papa.parse(file, {
       header: true,
       complete: (results) => {
-        axios.post('http://localhost:8080/learner/import', { data: results.data })
+        axios.post('http://localhost:8080/api/learner/import', { data: results.data })
           .then(response => {
             navigate('/dashboard')
           })
@@ -127,7 +127,7 @@ function UserImportAction() {
     Papa.parse(file, {
       header: true,
       complete: (results) => {
-        axios.post('http://localhost:8080/user/import', { data: results.data })
+        axios.post('http://localhost:8080/api/user/import', { data: results.data })
           .then(response => {
             navigate('/dashboard')
           })

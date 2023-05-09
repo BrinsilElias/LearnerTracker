@@ -16,7 +16,7 @@ import { LearnerDataCard,
 
 function Dashboard() {
   const navigate = useNavigate()
-  const serverApi = "http://localhost:8080/datastat"
+  const serverApi = "http://localhost:8080/api/datastat"
 
   const [data, setData] = useState({});
   const [name, setName] = useState(sessionStorage.getItem("userName"))
@@ -24,7 +24,7 @@ function Dashboard() {
   const [token, setToken] = useState(sessionStorage.getItem("userToken"))
 
   useEffect(() => {
-    axios.get(serverApi + "?token=" + token).then((response) => {
+    axios.post(serverApi, {"token": token}).then((response) => {
       if(response.data.status === "Unauthorized Access") {
         navigate('/')
       }
@@ -37,7 +37,15 @@ function Dashboard() {
       <DashboardHeader name={sessionStorage.getItem("userName")} role={role} />
       <div className='dashboard-body'>
         <div className='dashboard-body-header'>
-          <h1>Welcome back, <span>{name === null ? '' : name.split(' ')[0]}</span></h1>
+          <h1>Welcome back,  
+            <span>
+              {name 
+                ? name.includes(' ') 
+                  ? ' ' + name.split(' ')[0] : ' ' + name
+                : ''
+              }
+            </span>
+          </h1>
           <p>Track and manage your learners and their details</p>
         </div>
         <div className='dashboard-body-cards'>
